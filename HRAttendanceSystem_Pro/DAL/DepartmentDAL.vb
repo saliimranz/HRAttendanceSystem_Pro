@@ -1,8 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports HRAttendanceSystem_Pro.DBHelper
-Imports HRAttendanceSystem_Pro.Department
-
-
 
 Public Class DepartmentDAL
     Public Shared Function AddDepartment(dept As Department) As Boolean

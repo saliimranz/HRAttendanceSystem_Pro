@@ -56,7 +56,7 @@
 
         <div class="section">
             <h3>📊 Reports</h3>
-            <a href="Pages/AttendanceReport.aspx" class="btn">Attendance Report</a>
+            <a href="/Reports/AttendanceReport.aspx" class="btn">Attendance Report</a>
             <a href="Pages/OTSummary.aspx" class="btn">OT Summary Report</a>
             <a href="Pages/MonthlySummary.aspx" class="btn">Monthly Summary Report</a>
         </div>

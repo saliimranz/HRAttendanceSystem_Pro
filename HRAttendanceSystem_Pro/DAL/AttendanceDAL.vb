@@ -121,6 +121,66 @@ Public Class AttendanceDAL
         Return dt
     End Function
 
+    Public Shared Function GetDepartments() As List(Of Department)
+        Dim list As New List(Of Department)()
+        Using con = DBHelper.GetConnection()
+            Dim query = "SELECT DepartmentID, DepartmentName FROM Department"
+            Using cmd As New SqlCommand(query, con)
+                con.Open()
+                Using reader = cmd.ExecuteReader()
+                    While reader.Read()
+                        list.Add(New Department With {
+                        .DepartmentID = Convert.ToInt32(reader("DepartmentID")),
+                        .DepartmentName = reader("DepartmentName").ToString()
+                    })
+                    End While
+                End Using
+            End Using
+        End Using
+        Return list
+    End Function
 
+    Public Shared Function GetAttendanceReport(fromDate As Date, toDate As Date, empId As Integer?, deptId As Integer?) As DataTable
+        Dim dt As New DataTable()
+        Dim query As String = "
+        SELECT 
+            A.AttDate,
+            E.EmpName,
+            D.DepartmentName,
+            A.InTime,
+            A.OutTime,
+            A.Status,
+            S.StartTime AS ShiftStart,
+            S.EndTime AS ShiftEnd,
+            CASE 
+                WHEN A.Status = 'Absent' THEN 'Absent'
+                WHEN A.InTime > DATEADD(MINUTE, S.GracePeriod, S.StartTime) THEN 'Late'
+                ELSE 'Present'
+            END AS AttendanceStatus
+        FROM Attendance A
+        INNER JOIN ShiftAssignment SA ON A.ShiftAssignmentID = SA.AssignmentID
+        INNER JOIN Shift S ON SA.ShiftID = S.ShiftID
+        INNER JOIN Employee E ON SA.EmployeeID = E.EmployeeID
+        INNER JOIN Department D ON E.DepartmentID = D.DepartmentID
+        WHERE A.AttDate BETWEEN @from AND @to
+          AND (@empId IS NULL OR E.EmployeeID = @empId)
+          AND (@deptId IS NULL OR D.DepartmentID = @deptId)
+        ORDER BY A.AttDate, E.EmpName"
+
+        Using con = DBHelper.GetConnection()
+            Using cmd As New SqlCommand(query, con)
+                cmd.Parameters.AddWithValue("@from", fromDate)
+                cmd.Parameters.AddWithValue("@to", toDate)
+                cmd.Parameters.AddWithValue("@empId", If(empId.HasValue, empId.Value, DBNull.Value))
+                cmd.Parameters.AddWithValue("@deptId", If(deptId.HasValue, deptId.Value, DBNull.Value))
+
+                Using da As New SqlDataAdapter(cmd)
+                    da.Fill(dt)
+                End Using
+            End Using
+        End Using
+
+        Return dt
+    End Function
 
 End Class
