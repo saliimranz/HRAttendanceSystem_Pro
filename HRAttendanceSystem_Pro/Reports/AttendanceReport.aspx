@@ -25,7 +25,21 @@
         </div>
 
         <br />
-        <CR:CrystalReportViewer ID="crViewer" runat="server" AutoDataBind="true" Width="100%" />
+        <div id="reportContainer" style="margin-top:20px; border: 2px dashed red; background-color: #ffecec; padding: 10px;">
+            <CR:CrystalReportViewer ID="crViewer" runat="server"
+                AutoDataBind="false"
+                Width="100%" 
+                Height="1000px"
+                ToolPanelView="None"
+                HasExportButton="True"
+                HasPrintButton="True"
+                EnableDatabaseLogonPrompt="False"
+                ReuseParameterValuesOnRefresh="False"
+                EnableParameterPrompt="False"
+            />
+        </div>
+
+
         <asp:Label ID="lblMsg" runat="server" ForeColor="Red" />
     </form>
 </body>

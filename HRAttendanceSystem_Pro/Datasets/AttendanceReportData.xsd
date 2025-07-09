@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AttendanceReportData" targetNamespace="http://tempuri.org/AttendanceReportData.xsd" xmlns:mstns="http://tempuri.org/AttendanceReportData.xsd" xmlns="http://tempuri.org/AttendanceReportData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AttendanceReportData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="AttendanceReportData" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AttendanceReportData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AttendanceReportDT" msprop:Generator_RowClassName="AttendanceReportDTRow" msprop:Generator_RowEvHandlerName="AttendanceReportDTRowChangeEventHandler" msprop:Generator_RowDeletedName="AttendanceReportDTRowDeleted" msprop:Generator_RowDeletingName="AttendanceReportDTRowDeleting" msprop:Generator_RowEvArgName="AttendanceReportDTRowChangeEvent" msprop:Generator_TablePropName="AttendanceReportDT" msprop:Generator_RowChangedName="AttendanceReportDTRowChanged" msprop:Generator_UserTableName="AttendanceReportDT" msprop:Generator_RowChangingName="AttendanceReportDTRowChanging" msprop:Generator_TableClassName="AttendanceReportDTDataTable" msprop:Generator_TableVarName="tableAttendanceReportDT">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AttDate" msprop:Generator_UserColumnName="AttDate" msprop:Generator_ColumnPropNameInTable="AttDateColumn" msprop:Generator_ColumnPropNameInRow="AttDate" msprop:Generator_ColumnVarNameInTable="columnAttDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EmpName" msprop:Generator_UserColumnName="EmpName" msprop:Generator_ColumnPropNameInTable="EmpNameColumn" msprop:Generator_ColumnPropNameInRow="EmpName" msprop:Generator_ColumnVarNameInTable="columnEmpName" type="xs:string" minOccurs="0" />
+              <xs:element name="DepartmentName" msprop:Generator_UserColumnName="DepartmentName" msprop:Generator_ColumnPropNameInTable="DepartmentNameColumn" msprop:Generator_ColumnPropNameInRow="DepartmentName" msprop:Generator_ColumnVarNameInTable="columnDepartmentName" type="xs:string" minOccurs="0" />
+              <xs:element name="InTime" msprop:Generator_UserColumnName="InTime" msprop:Generator_ColumnPropNameInTable="InTimeColumn" msprop:Generator_ColumnPropNameInRow="InTime" msprop:Generator_ColumnVarNameInTable="columnInTime" type="xs:string" minOccurs="0" />
+              <xs:element name="OutTime" msprop:Generator_UserColumnName="OutTime" msprop:Generator_ColumnPropNameInTable="OutTimeColumn" msprop:Generator_ColumnPropNameInRow="OutTime" msprop:Generator_ColumnVarNameInTable="columnOutTime" type="xs:string" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="ShiftStart" msprop:Generator_UserColumnName="ShiftStart" msprop:Generator_ColumnPropNameInTable="ShiftStartColumn" msprop:Generator_ColumnPropNameInRow="ShiftStart" msprop:Generator_ColumnVarNameInTable="columnShiftStart" type="xs:string" minOccurs="0" />
+              <xs:element name="ShiftEnd" msprop:Generator_UserColumnName="ShiftEnd" msprop:Generator_ColumnPropNameInTable="ShiftEndColumn" msprop:Generator_ColumnPropNameInRow="ShiftEnd" msprop:Generator_ColumnVarNameInTable="columnShiftEnd" type="xs:string" minOccurs="0" />
+              <xs:element name="AttendanceStatus" msprop:Generator_UserColumnName="AttendanceStatus" msprop:Generator_ColumnPropNameInTable="AttendanceStatusColumn" msprop:Generator_ColumnPropNameInRow="AttendanceStatus" msprop:Generator_ColumnVarNameInTable="columnAttendanceStatus" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
